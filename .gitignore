@@ -46,3 +46,21 @@ ehthumbs_vista.db
 
 # File with errors if you are running locally
 spell_check_errors.tsv
+
+# Ignore large (or linked) data and reference files for all modules
+
+*/data/*
+*/QC/*
+*/index/*
+# Ignore RDS results files
+*/results/**/*.rds
+
+# But we want to include the QC reports for the sample we ran
+# gitignore is odd in how it checks which files to include in nested directories,
+# so we have to do some odd stuff
+
+!RNA-seq/QC/gastric-cancer
+RNA-seq/QC/gastric-cancer/fastp/*
+RNA-seq/QC/gastric-cancer/fastqc/*
+!RNA-seq/QC/gastric-cancer/**/SRR585570
+
